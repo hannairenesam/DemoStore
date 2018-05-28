@@ -24,6 +24,10 @@ public class demoqastoreAccessoriesPage {
 	{
 		return driver.findElement(By.xpath(".//*[@id='default_products_page_container']/div[3]/div[2]/h2/a"));
 	}
+	/*public WebElement getAddToCartLink()
+	{
+		return driver.findElement(By.xpath("//div[h2[a[text()='Magic Mouse']]]/form/div/div/span/input[@name='Buy']"));
+	}*/
 	public WebElement getMagicMouseAddToCartLink()
 	{
 		return driver.findElement(By.xpath("//div[h2[a[text()='Magic Mouse']]]/form/div/div/span/input[@name='Buy']"));

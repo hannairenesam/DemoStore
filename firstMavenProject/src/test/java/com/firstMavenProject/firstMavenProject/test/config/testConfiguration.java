@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.firstMavenProject.firstMavenProject.utils.DataHandlers;
 
+
 public class testConfiguration {
 	
 	public static WebDriver createDriverInstance()
@@ -37,5 +38,8 @@ public class testConfiguration {
 		driver.get (app_url);
 		return driver;
 	}
+	
+	
+	
 
 }

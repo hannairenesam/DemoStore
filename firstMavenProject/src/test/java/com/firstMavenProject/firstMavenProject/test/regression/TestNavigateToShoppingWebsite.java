@@ -7,12 +7,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+
 import com.firstMavenProject.firstMavenProject.repo.ui.DemoqastoreTransactionResultsPage;
 import com.firstMavenProject.firstMavenProject.repo.ui.demoqastoreAccessoriesPage;
 import com.firstMavenProject.firstMavenProject.repo.ui.demoqastoreCheckoutPage;
 import com.firstMavenProject.firstMavenProject.repo.ui.demoqastoreDeliveryDetailsPage;
 import com.firstMavenProject.firstMavenProject.repo.ui.demoqastoreLandingPage;
 import com.firstMavenProject.firstMavenProject.test.config.testConfiguration;
+import com.firstMavenProject.firstMavenProject.utils.DataHandlers;
 
 public class TestNavigateToShoppingWebsite {
 	
@@ -37,43 +39,31 @@ public class TestNavigateToShoppingWebsite {
 	@Test
 	public void testBuyMagicMouse() throws InterruptedException
 	{
+		//Navigate to DemoQA Store - Landing Page
 		landing_page.waitForLandingPageToLoad();
 		landing_page.getAccessoriesLink().click();
 		accessories_page.waitForAccessoriesPageToLoad();
-		//String tagName = accessories_page.getMagicMouseProductLink().getTagName();
-		//System.out.println(tagName);
-		//accessories_page.getMagicMouseProductLink().click();
-		//System.out.println("Product Name is"+ product_name);
 		
-		//Add Magic Mouse product to Cart
+		//Add Magic Mouse to Cart
 		accessories_page.getMagicMouseAddToCartLink().click();
 		Thread.sleep(10000);
-		//String message = accessories_page.getAddToCartConfirmationMessage().toString();
-		//System.out.println(message);
-		
-		//System.out.println ("Confirmation message is" +actual_confirmationMessage);
-		//String expected_actual_confirmationMessage = "Item has been added to your cart!";
-		//Assert.assertEquals(expected_actual_confirmationMessage, actual_confirmationMessage);
 		accessories_page.getcheckoutLink().click();
 		
+		//Verify Product details in Checkout Page	
 		checkout_page.waitForCheckoutPageToLoad();
 		String actual_productName= checkout_page.getProductNameLabel().getText();
 		String expected_productName = "Magic Mouse";
 		Assert.assertEquals(actual_productName, expected_productName);
-				
-		
 		String actual_productQuantity = checkout_page.getProductQuantityTextBox();
-		//System.out.println("Product Quantity is"+actual_productQuantity);
 		String expected_productQuantity = "1";
-		/*int actual_productQuantity = Integer.parseInt(productQuantity);
-		System.out.println("Product Quantity is"+actual_productQuantity);
-		int expected_productQuantity = 1;*/
 		Assert.assertEquals(actual_productQuantity, expected_productQuantity);
 		checkout_page.getContinueButton().click();
 		
 		//ENTER BILLING AND SHIPPING DETAILS
 		delivery_details_page.waitForDeliveryDetailsPageToLoad();
-		delivery_details_page.getEmailAddressTextbox().sendKeys("hannairene89@gmail.com");
+		//delivery_details_page.getEmailAddressTextbox().sendKeys("hannairene89@gmail.com");
+		delivery_details_page.getEmailAddressTextbox().sendKeys(DataHandlers.getDataFromExcel("Book1", "Customer Information", 2, 0));
+		//sendKeys(DataHandler.getDataFromExcel("TestDataGuru99", "LoginData", 1, 0));
 		delivery_details_page.getFirstNameBillingDetailsTextbox().sendKeys("Hanna");
 		delivery_details_page.getLastNameBillingDetailsTextbox().sendKeys("Irene Sam");
 		delivery_details_page.getAddressBillingDetailsTextarea().sendKeys("7187 Harwick Drive, Mississauga, Ontario L4T3A5");
@@ -92,7 +82,6 @@ public class TestNavigateToShoppingWebsite {
 		delivery_details_page.getPurchaseButton().click();
 		
 		//Confirming order purchase in the Transactions Details Page
-		
 		transactions_results_page.waitForTransactionsResultsPageToLoad();
 		String actualProductName = transactions_results_page.getPurchasedProductName().getText();
 		String expectedProductName = "Magic Mouse";

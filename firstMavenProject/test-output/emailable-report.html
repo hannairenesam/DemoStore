@@ -31,14 +31,37 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">87.1 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">153.1 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Default test &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="1">com.firstMavenProject.firstMavenProject.test.regression.TestNavigateToShoppingWebsite</td><td><a href="#m1"><b>testBuyMagicMouse</b>  </a></td><td class="numi">1</td><td>1527449023250</td><td class="numi">58160</td></tr>
+<tr><th colspan="4">Default test &#8212; failed</th></tr>
+<tr class="failedodd"><td rowspan="1">com.firstMavenProject.firstMavenProject.test.regression.TestNavigateToShoppingWebsite</td><td><a href="#m1"><b>testBuyMagicMouse</b>  </a></td><td class="numi">1</td><td>1527466140076</td><td class="numi">120155</td></tr>
 </table>
 <h1>Default test</h1>
 <h2 id="m1">com.firstMavenProject.firstMavenProject.test.regression.TestNavigateToShoppingWebsite:testBuyMagicMouse</h2>
+<div style="padding-left:3em">
+<p>Expected condition failed: waiting for visibility of element located by By.xpath: //article[@id=&apos;post-30&apos;] (tried for 50 second(s) with 500 MILLISECONDS interval)</p>
+org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+<br/>at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+<br/>at com.firstMavenProject.firstMavenProject.repo.ui.DemoqastoreTransactionResultsPage.waitForTransactionsResultsPageToLoad(DemoqastoreTransactionResultsPage.java:19)
+<br/>at com.firstMavenProject.firstMavenProject.test.regression.TestNavigateToShoppingWebsite.testBuyMagicMouse(TestNavigateToShoppingWebsite.java:85)
+<br/>25 lines not shown
+<p>Caused by Cannot locate an element using By.xpath: //article[@id=&apos;post-30&apos;]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:01:39.354Z&apos;
+System info: host: &apos;HANNA-PC&apos;, ip: &apos;192.168.2.11&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown</p>
+org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:882)
+<br/>at java.util.Optional.orElseThrow(Optional.java:290)
+<br/>at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:881)
+<br/>at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+<br/>at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+<br/>at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+<br/>at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+<br/>at com.firstMavenProject.firstMavenProject.repo.ui.DemoqastoreTransactionResultsPage.waitForTransactionsResultsPageToLoad(DemoqastoreTransactionResultsPage.java:19)
+<br/>at com.firstMavenProject.firstMavenProject.test.regression.TestNavigateToShoppingWebsite.testBuyMagicMouse(TestNavigateToShoppingWebsite.java:85)
+<br/>25 lines not shown
+</div>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

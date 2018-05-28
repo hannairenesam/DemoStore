@@ -10,6 +10,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+import com.relevantcodes.extentreports.ExtentReports;
 public class DataHandlers {
 	
 	public static String getDataFromExcel (String fileName, String sheetName, int rowIndex, int cellIndex) 
@@ -17,7 +19,7 @@ public class DataHandlers {
 		String data = null;
 		try
 		{
-			File f = new File("./test-data/"+fileName+".xslx");
+			File f = new File("./firstMavenProject/test-data/"+fileName+".xslx");
 			FileInputStream fis = new FileInputStream (f);
 			Workbook wb = WorkbookFactory.create(fis);
 			Sheet st = wb.getSheet(sheetName);
@@ -69,6 +71,7 @@ public class DataHandlers {
 		}
 		return value;
 	}
-
+	
+	
 
 }
